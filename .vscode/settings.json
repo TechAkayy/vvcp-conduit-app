@@ -1,0 +1,10 @@
+{
+	"volar.tsPlugin": false,
+	"eslint.validate": ["vue", "html", "javascript"],
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.formatOnSave": true,
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": true
+	},
+	"editor.tabCompletion": "onlySnippets"
+}
