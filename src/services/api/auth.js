@@ -1,11 +1,11 @@
 import axios from '@/services/axios'
 
 const register = credentials => {
-	return axios.post('/users', {user: credentials})
+	return axios.post('/users', { user: credentials })
 }
 
 const login = credentials => {
-	return axios.post('/users/login', {user: credentials})
+	return axios.post('/users/login', { user: credentials })
 }
 
 const getCurrentUser = () => {
@@ -13,9 +13,7 @@ const getCurrentUser = () => {
 }
 
 const updateCurrentUser = currentUserInput => {
-	return axios
-		.put('/user', {user: currentUserInput})
-		.then(response => response.data.user)
+	return axios.put('/user', { user: currentUserInput })
 }
 
 export default {

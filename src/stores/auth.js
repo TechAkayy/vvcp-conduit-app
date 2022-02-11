@@ -104,8 +104,8 @@ export const useAuthStore = defineStore({
 						resolve(response.data.user)
 					})
 					.catch(error => {
-						this.registerFailure(error.response.data.errors)
-						reject(error.response.data.errors)
+						this.registerFailure(error)
+						reject()
 					})
 			})
 		},
@@ -121,8 +121,8 @@ export const useAuthStore = defineStore({
 						resolve(response.data.user)
 					})
 					.catch(error => {
-						this.loginFailure(error.response.data.errors)
-						reject(error.response.data.errors)
+						this.loginFailure(error)
+						reject()
 					})
 			})
 		},
@@ -137,8 +137,8 @@ export const useAuthStore = defineStore({
 						resolve(response.data.user)
 					})
 					.catch(error => {
-						this.getCurrentUserFailure(error.response.data.errors)
-						reject(error.response.data.errors)
+						this.getCurrentUserFailure(error)
+						reject()
 					})
 			})
 		},

@@ -13,7 +13,10 @@
 	const authStore = useAuthStore()
 
 	onMounted(() => {
-		authStore.getCurrentUser()
+		authStore
+			.getCurrentUser()
+			.then(response => {})
+			.catch(error => {})
 	})
 </script>
 

@@ -23,9 +23,12 @@
 	const login = () => {
 		// if (!formRef.value.checkValidity()) return
 
-		authStore.login(form.value).then(response => {
-			routerPush('index')
-		})
+		authStore
+			.login(form.value)
+			.then(response => {
+				routerPush('index')
+			})
+			.catch(error => {})
 	}
 </script>
 

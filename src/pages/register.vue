@@ -24,9 +24,12 @@
 	const register = () => {
 		// if (!formRef.value.checkValidity()) return
 
-		authStore.register(form).then(response => {
-			routerPush('index')
-		})
+		authStore
+			.register(form)
+			.then(response => {
+				routerPush('index')
+			})
+			.catch(error => {})
 	}
 </script>
 

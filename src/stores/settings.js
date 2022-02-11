@@ -39,8 +39,8 @@ export const useSettingsStore = defineStore({
 			return new Promise((resolve, reject) => {
 				authService
 					.updateCurrentUser(form)
-					.then(user => {
-						this.updateCurrentUserSuccess(user)
+					.then(response => {
+						this.updateCurrentUserSuccess(response.data.user)
 						resolve(user)
 					})
 					.catch(error => {
@@ -54,9 +54,12 @@ export const useSettingsStore = defineStore({
 
 		logout() {
 			return new Promise((resolve, reject) => {
-				this.authStore.logout().then(response => {
-					resolve()
-				})
+				this.authStore
+					.logout()
+					.then(response => {
+						resolve()
+					})
+					.catch(error => {})
 			})
 		},
 	},

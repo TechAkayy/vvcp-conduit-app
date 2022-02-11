@@ -16,9 +16,12 @@
 	const updateCurrentUser = () => {
 		// if (!formRef.value.checkValidity()) return
 
-		settingsStore.updateCurrentUser(form.value).then(response => {
-			//  routerPush('index')
-		})
+		settingsStore
+			.updateCurrentUser(form.value)
+			.then(response => {
+				//  routerPush('index')
+			})
+			.catch(error => {})
 	}
 
 	onMounted(() => {
@@ -26,9 +29,12 @@
 	})
 
 	const logout = () => {
-		settingsStore.logout().then(response => {
-			routerPush('index')
-		})
+		settingsStore
+			.logout()
+			.then(response => {
+				routerPush('index')
+			})
+			.catch(error => {})
 	}
 </script>
 
