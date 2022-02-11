@@ -1,24 +1,31 @@
-import {defineStore} from 'pinia'
+import { defineStore } from 'pinia'
 import authService from '@/services/api/auth'
-import {setItem} from '@/services/local-storage'
+import { setItem } from '@/services/local-storage'
+
+const currentUserDefault = () => ({
+	username: '',
+	bio: '',
+	image: '',
+	email: '',
+	password: '',
+})
 
 export const useAuthStore = defineStore({
 	id: 'auth',
 	state: () => ({
 		isSubmitting: false,
-		isLoggedIn: null,
+		isLoggedIn: false,
 		isLoading: false,
-		currentUser: null,
+		currentUser: currentUserDefault(),
 		validationErrors: null,
 	}),
-	getters: {
-		// doubleCount: state => state.counter * 2,
-	},
+	getters: {},
 	actions: {
 		registerStart() {
 			this.isSubmitting = true
 			this.validationErrors = null
 		},
+
 		registerSuccess(payload) {
 			this.isSubmitting = false
 			this.isLoggedIn = true
@@ -30,20 +37,21 @@ export const useAuthStore = defineStore({
 			this.validationErrors = payload
 		},
 
-		postRegister(form) {
+		register(form) {
 			this.registerStart()
-
-			return authService
-				.register(form)
-				.then(response => {
-					this.registerSuccess(response.data.user)
-					setItem('accessToken', response.data.user.token)
-					return true
-				})
-				.catch(error => {
-					this.registerFailure(error.response.data.errors)
-					return false
-				})
+			return new Promise((resolve, reject) => {
+				authService
+					.register(form)
+					.then(response => {
+						this.registerSuccess(response.data.user)
+						setItem('accessToken', response.data.user.token)
+						resolve(response.data.user)
+					})
+					.catch(error => {
+						this.registerFailure(error.response.data.errors)
+						reject(error.response.data.errors)
+					})
+			})
 		},
 	},
 })

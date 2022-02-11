@@ -7,8 +7,8 @@
 		password: '',
 	})
 
-	const formRef = ref()
-	const errors = ref()
+	// const formRef = ref()
+	// const errors = ref()
 
 	import {useAuthStore} from '@/stores/auth'
 	import {storeToRefs} from 'pinia'
@@ -23,14 +23,13 @@
 	const register = () => {
 		// if (!formRef.value.checkValidity()) return
 
-		authStore.postRegister(form).then(response => {
-			if (response) routerPush('index')
+		authStore.register(form).then(response => {
+			routerPush('index')
 		})
 	}
 </script>
 
 <template>
-	{{ isSubmitting }}
 	<div class="auth-page">
 		<div class="container page">
 			<div class="row">
