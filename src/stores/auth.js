@@ -62,6 +62,24 @@ export const useAuthStore = defineStore({
 			this.validationErrors = payload
 		},
 
+		getCurrentUserStart() {
+			this.isLoading = true
+			this.validationErrors = null
+		},
+
+		getCurrentUserSuccess(payload) {
+			this.isLoading = false
+			this.isLoggedIn = true
+			this.currentUser = payload
+		},
+
+		getCurrentUserFailure(payload) {
+			this.isLoading = false
+			this.isLoggedIn = false
+			this.currentUser = currentUserDefault()
+			this.validationErrors = payload
+		},
+
 		register(form) {
 			this.registerStart()
 			return new Promise((resolve, reject) => {
@@ -91,6 +109,22 @@ export const useAuthStore = defineStore({
 					})
 					.catch(error => {
 						this.loginFailure(error.response.data.errors)
+						reject(error.response.data.errors)
+					})
+			})
+		},
+
+		getCurrentUser() {
+			this.getCurrentUserStart()
+			return new Promise((resolve, reject) => {
+				authService
+					.getCurrentUser()
+					.then(response => {
+						this.getCurrentUserSuccess(response.data.user)
+						resolve(response.data.user)
+					})
+					.catch(error => {
+						this.getCurrentUserFailure(error.response.data.errors)
 						reject(error.response.data.errors)
 					})
 			})
