@@ -1,7 +1,5 @@
 <template>
-	<main>
-		<TheWelcome />
-	</main>
+	<main>Home page</main>
 </template>
 
 <route lang="yaml">

@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-	<div>404 - Not Found!</div>
+	<main>404 - Not Found!</main>
 </template>
 
 <route lang="yaml">

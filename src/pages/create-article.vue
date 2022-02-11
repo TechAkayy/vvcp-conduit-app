@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-	<div></div>
+	<main>Create Article page</main>
 </template>
 
 <style scoped></style>
