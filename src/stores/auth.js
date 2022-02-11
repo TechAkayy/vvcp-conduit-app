@@ -19,7 +19,16 @@ export const useAuthStore = defineStore({
 		currentUser: currentUserDefault(),
 		validationErrors: null,
 	}),
-	getters: {},
+
+	getters: {
+		username() {
+			return this.currentUser.username
+		},
+		userImg() {
+			return this.currentUser && this.currentUser.image
+		},
+	},
+
 	actions: {
 		registerStart() {
 			this.isSubmitting = true
