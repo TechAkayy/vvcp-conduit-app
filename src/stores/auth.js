@@ -80,6 +80,19 @@ export const useAuthStore = defineStore({
 			this.validationErrors = payload
 		},
 
+		updateCurrentUserStart() {},
+
+		updateCurrentUserSuccess(payload) {
+			this.currentUser = payload
+		},
+
+		updateCurrentUserFailure(payload) {},
+
+		logoutCurrentUser() {
+			this.currentUser = currentUserDefault()
+			this.isLoggedIn = false
+		},
+
 		register(form) {
 			this.registerStart()
 			return new Promise((resolve, reject) => {
@@ -127,6 +140,14 @@ export const useAuthStore = defineStore({
 						this.getCurrentUserFailure(error.response.data.errors)
 						reject(error.response.data.errors)
 					})
+			})
+		},
+
+		logout() {
+			return new Promise((resolve, reject) => {
+				setItem('accessToken', '')
+				this.logoutCurrentUser()
+				resolve()
 			})
 		},
 	},
