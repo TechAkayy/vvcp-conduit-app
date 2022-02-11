@@ -1,21 +1,22 @@
 <script setup>
-	import {routerPush} from '@/router'
-
-	const form = reactive({
-		username: '',
-		email: '',
-		password: '',
-	})
+	import { routerPush } from '@/router'
+	import { useAuthStore, currentUserDefault } from '@/stores/auth'
+	import { storeToRefs } from 'pinia'
 
 	// const formRef = ref()
 	// const errors = ref()
 
-	import {useAuthStore} from '@/stores/auth'
-	import {storeToRefs} from 'pinia'
 	const authStore = useAuthStore()
+	const form = reactive(currentUserDefault())
 
-	const {isSubmitting, isLoggedIn, isLoading, currentUser, validationErrors} =
-		storeToRefs(authStore)
+	const {
+		isSubmitting,
+		isLoggedIn,
+		isLoading,
+		currentUser,
+		validationErrors,
+	} = storeToRefs(authStore)
+
 	// const requiredFieldsMissing = computed(() => {
 	// 	return !(form.email && form.username && form.password)
 	// })

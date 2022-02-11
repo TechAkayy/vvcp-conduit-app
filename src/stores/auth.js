@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 import authService from '@/services/api/auth'
 import { setItem } from '@/services/local-storage'
 
-const currentUserDefault = () => ({
+export const currentUserDefault = () => ({
 	username: '',
 	bio: '',
 	image: '',
