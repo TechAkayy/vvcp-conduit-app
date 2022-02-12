@@ -44,10 +44,8 @@ export const useSettingsStore = defineStore({
 						resolve(user)
 					})
 					.catch(error => {
-						this.updateCurrentUserFailure(
-							error.response.data.errors
-						)
-						reject(error.response.data.errors)
+						this.updateCurrentUserFailure(error)
+						reject(error)
 					})
 			})
 		},
