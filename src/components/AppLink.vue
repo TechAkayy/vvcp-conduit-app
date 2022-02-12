@@ -1,16 +1,19 @@
-<template>
-	<router-link :aria-label="props.name" :to="props" v-bind="attrs">
-		<slot />
-	</router-link>
-</template>
-
-<script setup lang="ts">
+<script setup>
 	import { useAttrs } from 'vue'
 
 	const props = defineProps({
 		name: String,
-		params: () => ({}),
+		params: {
+			type: Object,
+			default: () => ({}),
+		},
 	})
 
-	const attrs = useAttrs()
+	// const attrs = useAttrs()
 </script>
+
+<template>
+	<router-link :aria-label="name" :to="$props" v-bind="$attrs">
+		<slot />
+	</router-link>
+</template>
