@@ -1,3 +1,3 @@
 <template>
-	<div>This is the footer from layout!</div>
+	<div>This is the footer!</div>
 </template>

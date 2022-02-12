@@ -21,5 +21,15 @@
 </script>
 
 <template>
-	<RouterView />
+	<header>
+		<Header />
+	</header>
+
+	<main>
+		<RouterView />
+	</main>
+
+	<footer>
+		<Footer />
+	</footer>
 </template>

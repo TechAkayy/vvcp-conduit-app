@@ -3,5 +3,3 @@
 <template>
 	<main>Profile page</main>
 </template>
-
-<style scoped></style>

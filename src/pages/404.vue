@@ -4,9 +4,9 @@
 
 <template>
 	<main>
-		<router-view />
 		<div>
 			<button @click="router.back()">Go back!</button>
 		</div>
+		404 - Not Found!
 	</main>
 </template>
