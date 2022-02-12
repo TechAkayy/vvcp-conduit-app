@@ -20,18 +20,18 @@ const routes = [
 	// {
 	//   name: "article",
 	//   path: "/article/:slug",
-	//   component: () => import("./pages/Article.vue"),
+	//   component: () => import("@/pages/Article.vue"),
 	// },
 	// {
 	//   name: "edit-article",
 	//   path: "/article/:slug/edit",
-	//   component: () => import("./pages/EditArticle.vue"),
+	//   component: () => import("@/pages/EditArticle.vue"),
 	// },
-	// {
-	//   name: "create-article",
-	//   path: "/article/create",
-	//   component: () => import("./pages/EditArticle.vue"),
-	// },
+	{
+		name: 'create-article',
+		path: '/article/create',
+		component: () => import('@/pages/EditArticle.vue'),
+	},
 	{
 		name: 'login',
 		path: '/login',

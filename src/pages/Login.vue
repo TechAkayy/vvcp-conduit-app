@@ -1,4 +1,5 @@
 <script setup>
+	import { computed } from 'vue'
 	import { routerPush } from '@/router'
 	import { useAuthStore } from '@/stores/auth'
 	import { storeToRefs } from 'pinia'

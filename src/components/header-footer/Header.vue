@@ -1,4 +1,5 @@
 <script setup>
+	import { computed } from 'vue'
 	import { routerPush } from '@/router'
 	import { useAuthStore } from '@/stores/auth'
 	import { storeToRefs } from 'pinia'
@@ -43,7 +44,7 @@
 		},
 		{
 			name: 'profile',
-			// params: {username: username.value},
+			params: { username: username.value },
 			title: username.value || '',
 			display: 'authorized',
 			img: userImg.value || '',

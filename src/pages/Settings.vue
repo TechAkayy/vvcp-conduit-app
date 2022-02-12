@@ -1,4 +1,5 @@
 <script setup>
+	import { computed, onMounted } from 'vue'
 	import { routerPush } from '@/router'
 	import { useSettingsStore } from '@/stores/settings'
 	import { useAuthStore } from '@/stores/auth'

@@ -1,5 +1,7 @@
 <script setup>
 	import { useAuthStore } from '@/stores/auth'
+	import { useHead } from '@vueuse/head'
+	import { onMounted } from 'vue'
 
 	// https://github.com/vueuse/head
 	// you can use this to manipulate the document head in any components,
