@@ -15,7 +15,7 @@
 
 	const allNavLinks = computed(() => [
 		{
-			name: 'index',
+			name: 'home',
 			title: 'Home',
 			display: 'all',
 		},
@@ -61,7 +61,7 @@
 <template>
 	<nav class="navbar navbar-light">
 		<div class="container">
-			<AppLink class="navbar-brand" name="index"> conduit </AppLink>
+			<AppLink class="navbar-brand" name="home"> conduit </AppLink>
 
 			<ul class="nav navbar-nav pull-xs-right">
 				<li v-for="link in navLinks" :key="link.name" class="nav-item">

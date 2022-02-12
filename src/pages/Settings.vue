@@ -19,7 +19,7 @@
 		settingsStore
 			.updateCurrentUser(form.value)
 			.then(response => {
-				//  routerPush('index')
+				//  routerPush('home')
 			})
 			.catch(error => {})
 	}
@@ -32,7 +32,7 @@
 		settingsStore
 			.logout()
 			.then(response => {
-				routerPush('index')
+				routerPush('home')
 			})
 			.catch(error => {})
 	}

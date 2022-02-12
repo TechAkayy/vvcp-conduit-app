@@ -27,7 +27,7 @@
 		authStore
 			.register(form)
 			.then(response => {
-				routerPush('index')
+				routerPush('home')
 			})
 			.catch(error => {})
 	}

@@ -3,7 +3,6 @@ import { defineConfig } from 'vite'
 
 import { liveDesigner } from '@akayy/unplugin-live-designer'
 import Vue from '@vitejs/plugin-vue'
-import Pages from 'vite-plugin-pages'
 import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 
@@ -21,11 +20,6 @@ export default defineConfig({
 		// https://github.com/vitejs/vite/tree/main/packages/plugin-vue
 		Vue({
 			include: [/\.vue$/, /\.md$/],
-		}),
-
-		// https://github.com/hannoeru/vite-plugin-pages
-		Pages({
-			extensions: ['vue', 'md'],
 		}),
 
 		// https://github.com/antfu/unplugin-vue-components

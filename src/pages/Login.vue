@@ -26,7 +26,7 @@
 		authStore
 			.login(form.value)
 			.then(response => {
-				routerPush('index')
+				routerPush('home')
 			})
 			.catch(error => {})
 	}

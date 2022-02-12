@@ -14,8 +14,6 @@ Inspired by [Vitesse](https://github.com/antfu/vitesse) & [Vitailse](https://git
 
 -   ⚡️ [Vue 3](https://github.com/vuejs/vue-next), [Vite 2](https://github.com/vitejs/vite), [npm](https://npmjs.com/)
 
--   🗂 [File based routing](./src/pages)
-
 -   📦 [Components auto importing](./src/components)
 
 -   🍍 [State Management via Pinia](https://pinia.esm.dev/)
