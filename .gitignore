@@ -27,5 +27,4 @@ coverage
 _pginfo/
 _pgbackup/
 pinegrow.json
-auto-imports.d.ts
 components.d.ts

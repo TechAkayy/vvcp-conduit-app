@@ -22,8 +22,6 @@ Inspired by [Vitesse](https://github.com/antfu/vitesse) & [Vitailse](https://git
 
 -   🔥 Use the [new `<script setup>` syntax](https://github.com/vuejs/rfcs/pull/227)
 
--   📥 [APIs auto importing](https://github.com/antfu/unplugin-auto-import) - use Composition API and others directly
-
 ## Pre-packed
 
 ### UI Frameworks
@@ -35,7 +33,6 @@ Inspired by [Vitesse](https://github.com/antfu/vitesse) & [Vitailse](https://git
 -   [Vue Router](https://github.com/vuejs/vue-router)
 -   [Pinia](https://pinia.esm.dev) - Intuitive, type safe, light and flexible Store for Vue using the composition api
 -   [`unplugin-vue-components`](https://github.com/antfu/unplugin-vue-components) - components auto import
--   [`unplugin-auto-import`](https://github.com/antfu/unplugin-auto-import) - Directly use Vue Composition API and others without importing
 -   [VueUse](https://github.com/antfu/vueuse) - collection of useful composition APIs
 -   [`@vueuse/head`](https://github.com/vueuse/head) - manipulate document head reactively
 
