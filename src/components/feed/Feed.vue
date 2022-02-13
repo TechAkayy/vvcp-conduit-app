@@ -12,8 +12,9 @@
 </script>
 
 <template>
-	<FeedNavigation v-bind="$attrs" tag="welcome" username="akayy" />
+	<FeedNavigation />
 
+	<div v-if="error">Something went wrong!</div>
 	<div v-if="isLoading" class="article-preview">Loading feed...</div>
 	<div v-else-if="feed.length === 0" class="article-preview">
 		No feed here... yet!
