@@ -20,16 +20,14 @@
 				</div>
 
 				<div class="col-md-3">
-					<div class="sidebar">
-						<Suspense>
-							<template #default>
-								<PopularTags />
-							</template>
-							<template #fallback>
-								Popular tags are downloading...
-							</template>
-						</Suspense>
-					</div>
+					<Suspense>
+						<template #default>
+							<PopularTags />
+						</template>
+						<template #fallback>
+							Popular tags are downloading...
+						</template>
+					</Suspense>
 				</div>
 			</div>
 		</div>
