@@ -2,11 +2,20 @@
 	import { ref, computed, onMounted, onUpdated } from 'vue'
 	import { useFeedStore } from '@/stores/feed'
 	import { useAuthStore } from '@/stores/auth'
+	import { useRoute } from 'vue-router'
 
 	const feedStore = useFeedStore()
 
+	const route = useRoute()
+	const currentTag = computed(() => route.params.tag)
+
+	const lastUsedTag = computed(() => {
+		if (currentTag.value) return currentTag.value
+		else return lastUsedTag.value
+	})
+
 	const tagFieldDisplay = computed(() => {
-		if (feedStore.currentTag) return 'all'
+		if (lastUsedTag.value) return 'all'
 		else return 'hide'
 	})
 
@@ -36,8 +45,8 @@
 		{
 			name: 'tag-feed',
 			routeName: 'tag',
-			routeParams: { tag: feedStore.currentTag },
-			title: feedStore.currentTag,
+			routeParams: { tag: lastUsedTag.value },
+			title: lastUsedTag.value,
 			icon: 'ion-pound',
 			display: tagFieldDisplay.value,
 		},

@@ -1,8 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '@/pages/Home.vue'
-import { useFeedStore } from '@/stores/feed'
-import { stringify, parseUrl } from 'query-string'
-import { limit } from '@/services'
 
 const routes = [
 	{
@@ -77,35 +74,5 @@ export function routerPush(name, params) {
 		return router.push({ name })
 	}
 }
-
-router.beforeResolve((to, from) => {
-	const feedStore = useFeedStore()
-
-	let apiUrl = ''
-
-	// My-feed
-	if (to.name === 'my-feed') apiUrl = `${apiUrl}/feed`
-
-	// Tag-feed
-	if (to.params.tag) apiUrl = `${apiUrl}?tag=${to.params.tag}`
-
-	// Page-query
-	const pageNumber = to.query.page || 1
-	const offset = pageNumber * limit - limit
-	const parsedUrl = parseUrl(apiUrl)
-	const stringifiedParams = stringify({
-		limit,
-		offset,
-		...parsedUrl.query,
-	})
-	apiUrl = `${parsedUrl.url}?${stringifiedParams}`
-
-	feedStore.apiUrlWithParams = apiUrl
-
-	feedStore
-		.getFeed()
-		.then(response => {})
-		.catch(error => {})
-})
 
 export { router }
