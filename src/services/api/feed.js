@@ -1,7 +1,7 @@
 import axios from '@/services/axios'
 
-const getFeed = () => {
-	return axios.get('/articles')
+const getFeed = routeFilter => {
+	return axios.get(routeFilter)
 }
 export default {
 	getFeed,

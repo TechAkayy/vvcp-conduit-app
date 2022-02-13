@@ -8,28 +8,17 @@
 
 	const { isLoading, feed, error } = storeToRefs(feedStore)
 
-	onMounted(() => {
-		feedStore
-			.getFeed()
-			.then(response => {})
-			.catch(error => {})
-	})
-
 	const favoriteArticle = () => {}
 </script>
 
 <template>
-	Global Feeds
+	<FeedNavigation v-bind="$attrs" tag="welcome" username="akayy" />
+
 	<div v-if="isLoading" class="article-preview">Loading feed...</div>
 	<div v-else-if="feed.length === 0" class="article-preview">
 		No feed here... yet!
 	</div>
 	<template v-else>
-		<!-- <ArticlesListArticlePreview
-			v-for="(article, index) in feed"
-			:key="article.slug"
-			:article="article"
-		/> -->
 		<div
 			class="article-preview"
 			v-for="(article, index) in feed.articles"

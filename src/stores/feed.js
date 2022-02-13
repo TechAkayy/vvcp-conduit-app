@@ -7,9 +7,19 @@ export const useFeedStore = defineStore({
 		feed: [],
 		isLoading: false,
 		error: null,
+		currentTag: null,
+		tagFeed: false,
+		myFeed: false,
 	}),
 
-	getters: {},
+	getters: {
+		routeFilter() {
+			let apiUrl = 'articles'
+			if (this.myFeed) apiUrl = `${apiUrl}/feed`
+			else if (this.tagFeed) apiUrl = `${apiUrl}?tag=${this.currentTag}`
+			return apiUrl
+		},
+	},
 
 	actions: {
 		getFeedStart() {
@@ -31,7 +41,7 @@ export const useFeedStore = defineStore({
 			this.getFeedStart()
 			return new Promise((resolve, reject) => {
 				feedService
-					.getFeed()
+					.getFeed(this.routeFilter)
 					.then(response => {
 						this.getFeedSuccess(response.data)
 						resolve(response.data)

@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '@/pages/Home.vue'
+import { useFeedStore } from '@/stores/feed'
 
 const routes = [
 	{
@@ -7,16 +8,16 @@ const routes = [
 		path: '/',
 		component: Home,
 	},
-	// {
-	// 	name: 'my-feed',
-	// 	path: '/my-feeds',
-	// 	component: Home,
-	// },
-	// {
-	// 	name: 'tag',
-	// 	path: '/tag/:tag',
-	// 	component: Home,
-	// },
+	{
+		name: 'my-feed',
+		path: '/my-feed',
+		component: Home,
+	},
+	{
+		name: 'tag',
+		path: '/tag/:tag',
+		component: Home,
+	},
 	{
 		name: 'article',
 		path: '/article/:slug',
@@ -74,5 +75,21 @@ export function routerPush(name, params) {
 		return router.push({ name })
 	}
 }
+
+router.beforeEach((to, from) => {
+	const feedStore = useFeedStore()
+	if (to.params.tag) {
+		feedStore.tagFeed = true
+		feedStore.currentTag = to.params.tag
+	} else feedStore.tagFeed = false
+
+	if (to.name === 'my-feed') feedStore.myFeed = true
+	else feedStore.myFeed = false
+
+	feedStore
+		.getFeed()
+		.then(response => {})
+		.catch(error => {})
+})
 
 export { router }
