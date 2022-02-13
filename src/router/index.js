@@ -7,21 +7,21 @@ const routes = [
 		path: '/',
 		component: Home,
 	},
-	{
-		name: 'my-feed',
-		path: '/my-feeds',
-		component: Home,
-	},
-	{
-		name: 'tag',
-		path: '/tag/:tag',
-		component: Home,
-	},
 	// {
-	//   name: "article",
-	//   path: "/article/:slug",
-	//   component: () => import("@/pages/Article.vue"),
+	// 	name: 'my-feed',
+	// 	path: '/my-feeds',
+	// 	component: Home,
 	// },
+	// {
+	// 	name: 'tag',
+	// 	path: '/tag/:tag',
+	// 	component: Home,
+	// },
+	{
+		name: 'article',
+		path: '/article/:slug',
+		component: () => import('@/pages/Article.vue'),
+	},
 	// {
 	//   name: "edit-article",
 	//   path: "/article/:slug/edit",
@@ -47,11 +47,11 @@ const routes = [
 		path: '/profile/:username',
 		component: () => import('@/pages/Profile.vue'),
 	},
-	{
-		name: 'profile-favorites',
-		path: '/profile/:username/favorites',
-		component: () => import('@/pages/Profile.vue'),
-	},
+	// {
+	// 	name: 'profile-favorites',
+	// 	path: '/profile/:username/favorites',
+	// 	component: () => import('@/pages/Profile.vue'),
+	// },
 	{
 		name: 'settings',
 		path: '/settings',
