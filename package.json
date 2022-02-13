@@ -30,6 +30,7 @@
 		"@vueuse/head": "^0.7.5",
 		"axios": "^0.25.0",
 		"pinia": "^2.0.9",
+		"query-string": "^7.1.1",
 		"vue": "^3.2.27",
 		"vue-router": "^4.0.12"
 	},

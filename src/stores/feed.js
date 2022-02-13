@@ -7,16 +7,14 @@ export const useFeedStore = defineStore({
 		feed: [],
 		isLoading: false,
 		error: null,
-		currentTag: null,
-		tagFeed: false,
-		myFeed: false,
+		apiUrlWithParams: '',
 	}),
 
 	getters: {
 		routeFilter() {
-			let apiUrl = 'articles'
-			if (this.myFeed) apiUrl = `${apiUrl}/feed`
-			else if (this.tagFeed) apiUrl = `${apiUrl}?tag=${this.currentTag}`
+			let apiUrl = '/articles'
+			if (this.apiUrlWithParams)
+				apiUrl = `${apiUrl}${this.apiUrlWithParams}`
 			return apiUrl
 		},
 	},
