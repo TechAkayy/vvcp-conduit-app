@@ -14,7 +14,9 @@ export default defineConfig({
 	},
 
 	plugins: [
-		liveDesigner(),
+		liveDesigner({
+			// globalStylesheets: ['./src/assets/base.css'],
+		}),
 
 		// https://github.com/vitejs/vite/tree/main/packages/plugin-vue
 		Vue({
