@@ -3,7 +3,7 @@ import devtools from '@vue/devtools'
 if (process.env.NODE_ENV === 'development') {
 	devtools.connect(/* host, port */)
 }
-import './assets/main.css'
+// import './assets/main.css'
 import { createApp } from 'vue'
 import { createHead } from '@vueuse/head'
 import { createPinia } from 'pinia'
