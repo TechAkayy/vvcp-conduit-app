@@ -9,13 +9,13 @@ import Components from 'unplugin-vue-components/vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-	base: '/vue/templates/vvcp-conduit-app/',
-	build: {
-		outDir: 'dist/vue/templates/vvcp-conduit-app',
-		watch: {
-			// https://rollupjs.org/guide/en/#watch-options
-		},
-	},
+	// base: '/vue/templates/vvcp-conduit-app/',
+	// build: {
+	// 	outDir: 'dist/vue/templates/vvcp-conduit-app',
+	// 	watch: {
+	// 		// https://rollupjs.org/guide/en/#watch-options
+	// 	},
+	// },
 	resolve: {
 		alias: {
 			'@': fileURLToPath(new URL('./src', import.meta.url)),
