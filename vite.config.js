@@ -1,8 +1,8 @@
 import { fileURLToPath, URL } from 'url'
 import { defineConfig } from 'vite'
-import { liveDesigner } from 'vite-plugin-pinegrow'
+import { liveDesigner } from '@pinegrow/vite-plugin'
 // import { liveDesigner } from '@akayy/pinegrow-devserver-connector'
-import { pinegrowVuetifyPlugin } from 'pinegrow-vuetify-plugin'
+// import { pinegrowVuetifyPlugin } from 'pinegrow-vuetify-plugin'
 // const { liveDesigner } = require('@akayy/unplugin-live-designer/dist/index.js')
 import Vue from '@vitejs/plugin-vue'
 import Components from 'unplugin-vue-components/vite'
@@ -24,7 +24,7 @@ export default defineConfig({
 
 	plugins: [
 		liveDesigner({
-			plugins: [pinegrowVuetifyPlugin],
+			// plugins: [pinegrowVuetifyPlugin],
 		}),
 
 		// https://github.com/vitejs/vite/tree/main/packages/plugin-vue
